@@ -54,6 +54,24 @@ public class App1 {
                         default: continue;
                     }
                     break;
+                case CREATE_ACCOUNT:
+                    // System.out.printf("New Student ID: S%03d \n", (students.length + 1));
+                    boolean validName;
+                    String name;
+                    int initialDeposit;
+
+                    //name validation
+                    do{
+                        validName = true;
+                        System.out.print("\tEnter name: ");
+                        name = SCANNER.nextLine().strip();
+
+                        if(name.isBlank()){
+                            System.out.printf(ERROR_MSG,"Name can't be empty.");
+                            validName = false;
+                            continue;
+                        }
+                    }while(!validName);
             }
         }while(true);
         
