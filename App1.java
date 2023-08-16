@@ -103,15 +103,19 @@ public class App1 {
                         }
                     }while(!validName);
 
-                    String[] newStudents = new String[accountHolders.length + 1];
+                    String[] newAccountHolder = new String[accountHolders.length + 1];
                     for (int i = 0; i < accountHolders.length; i++) {
-                        newStudents[i] = accountHolders[i];
+                        newAccountHolder[i] = accountHolders[i];
                     }
-                    newStudents[newStudents.length -1] = name;
-                    accountHolders = newStudents;
+                    newAccountHolder[newAccountHolder.length -1] = name;
+                    accountHolders = newAccountHolder;
 
                     System.out.println();
-                    System.out.print(name + " added sucessfully. Do you want to add new Account Holder (Y/n)? ");
+                    String id = null;
+                    for (int i = 0; i < accountHolders.length; i++) {
+                            id = String.format("SDB%04d", (i+1));  
+                         }
+                    System.out.print(id+":"+name + " added sucessfully. Do you want to add new Account Holder (Y/n)? ");
                     if (SCANNER.nextLine().strip().toUpperCase().equals("Y")) continue;
                     screen = DASHBOARD;
                     break;
