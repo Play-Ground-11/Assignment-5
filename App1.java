@@ -84,7 +84,7 @@ public class App1 {
                     System.out.printf("\tNew Account Holder ID: SDB%04d \n", (accountHolders.length + 1));
                     boolean validName;
                     String name;
-                    int initialDeposit;
+                    
                     do{
                         validName = true;
                         System.out.print("\tEnter Account Holder Name: ");
@@ -102,6 +102,26 @@ public class App1 {
                             }
                         }
                     }while(!validName);
+
+                    boolean validDeposit;
+                    int initialDeposit;
+                    do{
+                        validDeposit = true;
+                        System.out.print("\tEnter Initial Deposit: ");
+                        initialDeposit = SCANNER.nextInt();
+                        SCANNER.nextLine();
+
+                        if (initialDeposit == 0){
+                            System.out.printf(ERROR_MSG,"Initial deposit can't be empty.");
+                            validDeposit = false;
+                            continue;
+                        }
+                        if(initialDeposit < 0 || initialDeposit < 5000){
+                           System.out.printf(ERROR_MSG,"Insufficient amount");
+                            validDeposit = false;
+                            continue; 
+                        }
+                    }while(!validDeposit);
 
                     String[] newAccountHolder = new String[accountHolders.length + 1];
                     for (int i = 0; i < accountHolders.length; i++) {
