@@ -56,31 +56,6 @@ public class App1 {
                     }
                     break;
                 case CREATE_ACCOUNT:
-                    // System.out.printf("\tNew Account Holder ID: SDB%04d \n", (accountHolders.length + 1));
-                    // boolean validName;
-                    // String name;
-                    // int initialDeposit;
-
-                    // //name validation
-                    // do{
-                    //     validName = true;
-                    //     System.out.print("\tEnter name: ");
-                    //     name = SCANNER.nextLine().strip();
-
-                    //     if(name.isBlank()){
-                    //         System.out.printf(ERROR_MSG,"Name can't be empty.");
-                    //         validName = false;
-                    //         continue;
-                    //     }
-                    //     for (int i = 0; i < name.length(); i++) {
-                    //         if(!Character.isLetter(name.charAt(i))){
-                    //             System.out.printf(ERROR_MSG, "Invalid Name");
-                    //             validName =false;
-                    //             break;
-                    //         }
-                    //     }
-                    //     System.out.println("........");
-                    // }while(!validName);
                     System.out.printf("\tNew Account Holder ID: SDB%04d \n", (accountHolders.length + 1));
                     boolean validName;
                     String name;
