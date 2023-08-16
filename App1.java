@@ -22,6 +22,7 @@ public class App1 {
         final String ERROR_MSG = String.format("\t%s%s%s\n", COLOR_RED_BOLD, "%s", RESET);
         final String SUCCESS_MSG = String.format("\t%s%s%s\n", COLOR_GREEN_BOLD, "%s", RESET);
 
+        String[] accountHolders = new String[0];
         String screen = DASHBOARD;
 
         do{
@@ -55,23 +56,66 @@ public class App1 {
                     }
                     break;
                 case CREATE_ACCOUNT:
-                    // System.out.printf("New Student ID: S%03d \n", (students.length + 1));
+                    // System.out.printf("\tNew Account Holder ID: SDB%04d \n", (accountHolders.length + 1));
+                    // boolean validName;
+                    // String name;
+                    // int initialDeposit;
+
+                    // //name validation
+                    // do{
+                    //     validName = true;
+                    //     System.out.print("\tEnter name: ");
+                    //     name = SCANNER.nextLine().strip();
+
+                    //     if(name.isBlank()){
+                    //         System.out.printf(ERROR_MSG,"Name can't be empty.");
+                    //         validName = false;
+                    //         continue;
+                    //     }
+                    //     for (int i = 0; i < name.length(); i++) {
+                    //         if(!Character.isLetter(name.charAt(i))){
+                    //             System.out.printf(ERROR_MSG, "Invalid Name");
+                    //             validName =false;
+                    //             break;
+                    //         }
+                    //     }
+                    //     System.out.println("........");
+                    // }while(!validName);
+                    System.out.printf("\tNew Account Holder ID: SDB%04d \n", (accountHolders.length + 1));
                     boolean validName;
                     String name;
                     int initialDeposit;
-
-                    //name validation
                     do{
                         validName = true;
-                        System.out.print("\tEnter name: ");
+                        System.out.print("\tEnter Account Holder Name: ");
                         name = SCANNER.nextLine().strip();
-
-                        if(name.isBlank()){
+                        if (name.isBlank()){
                             System.out.printf(ERROR_MSG,"Name can't be empty.");
                             validName = false;
                             continue;
                         }
+                        for (int i = 0; i < name.length(); i++) {
+                            if (!Character.isLetter(name.charAt(i))) {
+                                System.out.printf(ERROR_MSG, "Invalid Name");
+                                validName = false;
+                                break;
+                            }
+                        }
                     }while(!validName);
+
+                    String[] newStudents = new String[accountHolders.length + 1];
+                    for (int i = 0; i < accountHolders.length; i++) {
+                        newStudents[i] = accountHolders[i];
+                    }
+                    newStudents[newStudents.length -1] = name;
+                    accountHolders = newStudents;
+
+                    System.out.println();
+                    System.out.print(name + " added sucessfully. Do you want to add new Account Holder (Y/n)? ");
+                    if (SCANNER.nextLine().strip().toUpperCase().equals("Y")) continue;
+                    screen = DASHBOARD;
+                    break;
+                    
             }
         }while(true);
         
